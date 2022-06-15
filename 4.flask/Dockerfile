@@ -1,19 +1,13 @@
 FROM python:3.8-alpine
 
-# RUN apk add --update curl && \
-#     rm -rf /var/cache/apk/*
-
-# RUN pip install flask
-
 WORKDIR /app
+#.dockerignore에서 copy에 제외할 것을 정의
 COPY . /app
 
-RUN pip install -r requirements.txt
+RUN pip install -r ./requirements.txt
 
-ENTRYPOINT ["python", "app.py"]
-
-# Using unbuffered output to see the python "print" in "docker logs my-app"
-# ENTRYPOINT ["python", "-u", "app.py"]
-# or -e PYTHONUNBUFFERED=1 with docker cmd
+# CMD ["python", "app.py"] 혹은
+ENTRYPOINT ["python"]
+CMD ["app.py"]
 
 EXPOSE 5000

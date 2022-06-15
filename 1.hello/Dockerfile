@@ -2,4 +2,4 @@
 FROM ubuntu
 
 # My Starting Point...
-ENTRYPOINT ["echo", "hello, docker"]
+ENTRYPOINT ["echo", "hello, dockerfile"]
